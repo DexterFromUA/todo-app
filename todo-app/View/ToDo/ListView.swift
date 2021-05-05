@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.colorScheme) private var colorScheme
     
     var changeModalState: () -> ()
     var items: FetchedResults<Item>
@@ -44,7 +45,7 @@ struct ListView: View {
                                         
                                         
                                         Spacer()
-                                    }
+                                    }.foregroundColor(colorScheme == .dark ? .white : .black)
                                     
                                     HStack {
                                         Text("\(item.timestamp!, formatter: itemFormatter)")
