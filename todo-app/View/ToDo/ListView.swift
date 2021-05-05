@@ -12,7 +12,7 @@ struct ListView: View {
     
     var changeModalState: () -> ()
     var items: FetchedResults<Item>
-    @State var showCompleted = false
+    @AppStorage("showOnlyComplited") var showCompleted: Bool = false
     
     var list: [Item] {
         var newList: [Item] = []
@@ -24,10 +24,6 @@ struct ListView: View {
         }
         
         return newList
-    }
-    
-    var filteredItems: [Item] {
-        items.filter { !$0.completed }
     }
     
     var body: some View {
