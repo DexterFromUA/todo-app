@@ -32,7 +32,7 @@ struct ListView: View {
             VStack {
                 if list.count > 0 {
                     List {
-                        ForEach(list) { (item) in
+                        ForEach(list, id: \.self) { (item) in
                             Button(action: {
                                 onUpdate(item: item)
                             }, label: {
